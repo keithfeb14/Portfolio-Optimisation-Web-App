@@ -17,6 +17,7 @@ tickers = [ticker.strip() for ticker in tickers.split(',')]
 start_date = st.sidebar.date_input("Start Date", datetime.today() - timedelta(5 * 365))
 end_date = st.sidebar.date_input("End Date", datetime.today())
 
+
 # Run optimization when button is clicked
 if st.sidebar.button("Optimize Portfolio"):
     with st.spinner('Optimizing portfolio...'):
@@ -44,7 +45,7 @@ if st.sidebar.button("Optimize Portfolio"):
                 return (expected_return(weights, log_returns) - risk_free_rate) / standard_deviation(weights, cov_matrix)
 
             # Define the risk free rate
-            #fred = Fred(api_key="ff13d3aca000abd2734f8e45dff1472b")
+            #fred = Fred(api_key="")
             #ten_year_treasury_rate = fred.get_series_latest_release('GS10') / 100
             #risk_free_rate = ten_year_treasury_rate.iloc[-1]
             risk_free_rate = 0.05
@@ -121,3 +122,8 @@ if st.sidebar.button("Optimize Portfolio"):
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
+st.sidebar.markdown("---")
+
+if st.sidebar.button("Black-Scholes Option Pricing Calculator"):
+    st.sidebar.markdown('<meta http-equiv="refresh" content="0;url=https://black-scholes.streamlit.app/">', unsafe_allow_html=True)
