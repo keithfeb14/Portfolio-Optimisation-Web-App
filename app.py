@@ -125,5 +125,4 @@ if st.sidebar.button("Optimize Portfolio"):
 
 st.sidebar.markdown("---")
 
-if st.sidebar.button("Black-Scholes Option Pricing Calculator"):
-    st.sidebar.markdown('<meta http-equiv="refresh" content="0;url=https://black-scholes.streamlit.app/">', unsafe_allow_html=True)
+st.sidebar.link_button("Black-Scholes Calculator", "https://black-scholes.streamlit.app/", help="Opens in new tab")
